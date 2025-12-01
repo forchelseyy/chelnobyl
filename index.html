@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chelsey&lt;33</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+<!-- Heart favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    background: url('https://www.shutterstock.com/image-illustration/3d-render-many-small-pink-600nw-2110574012.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Letterbox container */
+.letterbox {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    border: 2px solid magenta;
+    border-radius: 20px;
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+    animation: floatText 6s ease-in-out infinite alternate;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: magenta transparent;
+    white-space: pre-line;
+    text-align: left; /* default text left for message */
+    z-index: 1;
+}
+
+/* Title centered */
+.letterbox h1 {
+    color: magenta;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Floating/gliding text */
+.message {
+    font-size: 1.4em;
+    line-height: 1.6;
+    animation: textFloat 10s ease-in-out infinite alternate;
+    text-align: justify; /* fully justify text */
+}
+
+/* Scrollbar styling */
+.letterbox::-webkit-scrollbar {
+    width: 8px;
+}
+.letterbox::-webkit-scrollbar-thumb {
+    background: magenta;
+    border-radius: 4px;
+}
+
+/* Falling hearts container */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    color: #ff69b4;
+    font-size: 20px;
+    opacity: 0;
+    text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translateY(50vh) rotate(180deg) translateX(15px); }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(-15px); opacity: 0; }
+}
+
+@keyframes floatText {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Pink-envelope styled button */
+.envelope-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #ff9ec7, #ff4da6);
+    border: 2px solid magenta;
+    border-radius: 15px;
+    font-size: 1.5em;
+    color: purple; /* button text purple */
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+    display: inline-block;
+    position: relative;
+    animation: floatText 6s ease-in-out infinite alternate;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.envelope-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.9);
+}
+
+/* Mini hearts on button hover */
+.envelope-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.envelope-button:hover::after {
+    animation: miniHearts 1.5s linear infinite;
+}
+
+@keyframes miniHearts {
+    0% { box-shadow: 0 0 #ff69b4; }
+    25% { box-shadow: -10px -20px #ff69b4, 10px -15px #ff69b4, 5px -25px #ff69b4; }
+    50% { box-shadow: -5px -25px #ff69b4, 15px -10px #ff69b4, 0px -30px #ff69b4; }
+    75% { box-shadow: -15px -10px #ff69b4, 10px -20px #ff69b4, 5px -15px #ff69b4; }
+    100% { box-shadow: 0 0 #ff69b4; }
+}
+</style>
+</head>
+<body>
+
+<!-- Falling hearts container -->
+<div class="hearts-container" id="heartsContainer"></div>
+
+<!-- Letterbox -->
+<div class="letterbox">
+    <h1>For Chelsey&lt;33</h1>
+    <div class="message">
+Haiii chelseyyy, my pookiewookie, my light, my comfort, my best friend, my loveee 🥹💗
+Before anything else… happy birthday, my love.
+Today is your day, and I just wanna pour my entire heart out to you, no holding back, not even a little bit.
+
+Chelsey…
+Thank you,
+For real, thank you for existing,
+Thank you for staying,
+Thank you for choosing me, even when I didn’t choose myself.
+
+I just wanna take a moment to appreciate you, because you deserve that and more TvT
+You’ve been with me through every flaw I hate about myself,
+my overthinking, my self-hate spirals, my moments of shutting down,
+and still you stayed, still you held my hand, still you loved me gently, honestly, patiently.
+
+You’ve always been so transparent with me, so open, so willing to talk through problems like we’re two souls actually working together instead of fighting alone,
+And that means everything to me, chelsey,
+You don’t know how rare that is,
+How rare you are.
+
+And the way you match my energy???
+God, I can’t even explain how happy that makes me,
+You get me, like ACTUALLY get me,
+I never have to pretend, never have to tone myself down, never have to adjust or hide parts of how I speak or think or type,
+You just flow with me naturally,
+It feels like breathing,
+It feels like home 🥹
+
+And honestly… the thing I’m most thankful for is just you >W<
+You, with all your softness and strength,
+You, with all your patience and warmth,
+You, with your perfect little laughs and the way you say things that make me melt at 3am,
+You, who became my light at the bottom of the abyss,
+You, who became my second chance at life,
+My frequency to my radio,
+My calm and my chaos,
+My sweet and my spicy,
+My girl,
+My chelsey.
+
+Sometimes we’re cats and dogs, sometimes we’re sugar and fire, but no matter what, we always fit,
+We compliment each other so well it scares me sometimes… in a good way,
+Like fate actually knew what it was doing when it brought me to you,
+And I pray, I seriously pray, that this relationship never ends 🥹
+Because losing someone like you would break me in ways I’ll never recover from.
+
+Chelsey… I wanna spend more time with you,
+More minutes, more hours, more years…
+Hell, my entire freaking life with you bby ;(
+
+I wanna wake up to your smile,
+I wanna hear your laugh beside mine every morning,
+I wanna feel your warmth on the nights the world feels too heavy,
+I wanna hold your hand through every problem, every fear, every victory,
+I wanna be with you hanggang pagtanda.
+
+I wanna see our future,
+Our home,
+Our sons and daughters,
+Our quiet nights cooking together,
+Our loud mornings laughing,
+Our life built with love and effort and patience.
+
+I wanna give you the life you deserve,
+I wanna be the man you can proudly say is yours,
+I wanna work hard for our family someday,
+I wanna say “till death do us part” and mean every breath of it.
+
+Because Chelsey…
+Time won’t stop me from loving you,
+Distance won’t stop me from loving you,
+Circumstances, problems, storms, none of that will ever stop me,
+I’ll love you even if the whole world ends,
+I’ll love you even when I’m tired,
+I’ll love you even when you’re tired,
+I’ll love you even through everything that tries to pull us apart.
+
+I love you so, so much chelseyy<33
+Thank you for being patient with me,
+Thank you for healing me in ways I didn’t think were possible TwT
+Thank you for choosing me every single day.
+
+And one more thing, pookiee…
+
+I’m sorry if I’m not the perfect boyfriend yet,
+I know I mess up,
+I know I fall short sometimes,
+But I promise, with everything I have,
+I’m working on me for us,
+You make me want to be better,
+You make me want to grow, to rise, to change.
+
+One day, I’ll be ready to be more than just your boyfriend,
+I’ll be ready to be your forever,
+Your partner,
+Your home,
+Your future.
+
+Chelsey, I promise…
+I’ll never leave you,
+I’ll always choose you,
+I’ll stand by you through every hurt and every triumph,
+I’ll care for you, cherish you, adore you, protect you, and love you with everything inside me.
+
+Happy birthday, my love,
+You are the best thing that has ever happened to me.
+
+I love you endlessly,
+I love you loudly,
+I love you softly,
+I love you in every version of me,
+I love you in every lifetime.
+
+<3333
+    </div>
+</div>
+
+<!-- Pink-envelope styled button -->
+<a href="https://docs.google.com/document/d/11bG4HGyiiRdte6cBNqVzsyixjS4uAfV1fDsXe_LNnT4/" target="_blank" class="envelope-button">
+    30 Poems For Chelsey
+</a>
+
+<script>
+const heartsContainer = document.getElementById('heartsContainer');
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    const size = 15 + Math.random() * 25;
+    heart.style.fontSize = size + 'px';
+    const duration = 18 + Math.random() * 10;
+    heart.style.animationDuration = duration + 's';
+    heart.style.animationDelay = Math.random() * 5 + 's';
+    heart.style.animationTimingFunction = 'linear';
+    heartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), (duration + 1) * 1000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
