@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chelsey&lt;33</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://jimstewart360.ca/wp-content/gallery/blue-hour/Blue-Hour-610-4465.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Frost overlay & moonlight glow */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: radial-gradient(circle at top right, rgba(255,255,240,0.08), rgba(10,20,40,0.6));
+    z-index: -10;
+}
+
+/* Glass gift box */
+.letterbox {
+    background: rgba(160, 200, 255, 0.18);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(200, 230, 255, 0.35);
+    border-radius: 22px;
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0 35px rgba(160, 210, 255, 0.35), inset 0 0 25px rgba(255,255,255,0.08);
+    animation: floatText 6s ease-in-out infinite alternate;
+    z-index: 5;
+}
+
+.letterbox h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #eaf4ff;
+}
+
+.message {
+    font-size: 1.35em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Containers */
+.layer { position: absolute; inset: 0; pointer-events: none; }
+.star { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.6); animation: twinkle 6s ease-in-out infinite; }
+.snow { position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.7); border-radius: 50%; filter: blur(0.4px); }
+.wind { position: absolute; height: 2px; border-radius: 50%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent); filter: blur(0.3px); }
+
+/* Fog */
+.fog { position: absolute; width: 120%; height: 220px; background: linear-gradient(to right, transparent, rgba(180,220,255,0.12), transparent); filter: blur(45px); animation: fogMove linear infinite; }
+
+@keyframes fogMove { from { transform: translateX(-10%); } to { transform: translateX(10%); } }
+@keyframes twinkle { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+@keyframes floatText { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+/* Snowman & dialogue */
+.snowman { position: fixed; bottom: 20px; right: 20px; font-size: 80px; cursor: pointer; z-index: 6; }
+.snowman.wiggle { animation: wiggle 0.6s ease; }
+@keyframes wiggle { 0% { transform: rotate(0); } 25% { transform: rotate(6deg); } 50% { transform: rotate(-6deg); } 100% { transform: rotate(0); } }
+.dialogue { position: fixed; bottom: 120px; right: 40px; background: rgba(240,248,255,0.95); color: #2b4a6f; padding: 12px 18px; border-radius: 14px; animation: dialogueFade 3s ease forwards; z-index: 6; }
+@keyframes dialogueFade { 0% { opacity: 0; transform: translateY(10px); } 15% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px); } }
+</style>
+</head>
+<body>
+
+<div class="layer" id="stars"></div>
+<div class="layer" id="snow"></div>
+<div class="layer" id="wind"></div>
+<div class="layer" id="fog"></div>
+
+<div class="letterbox">
+<h1>Christmas 2025</h1>
+<div class="message">GAGAWIN PALANG YUNG MESSAGE</div>
+</div>
+
+<div class="snowman" id="snowman">☃️</div>
+
+<script>
+function noise(t){return Math.sin(t)*Math.cos(t*0.7);}
+const stars=document.getElementById('stars'),snow=document.getElementById('snow'),wind=document.getElementById('wind'),fog=document.getElementById('fog'),snowman=document.getElementById('snowman');
+const dialogues=["I love uu smm :3","Merry christmass!!<33","Will uu 'Merry' me? hwueh :3","Plz marry me:3","I'll love you forever and ever ^w^"];
+
+/* Stars */
+for(let i=0;i<120;i++){
+  const s=document.createElement('div');s.className='star';
+  const size=Math.random()*2+1;s.style.width=s.style.height=size+'px';
+  s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*60+'vh';
+  s.style.animationDuration=4+Math.random()*6+'s';
+  stars.appendChild(s);
+}
+
+/* Fog */
+for(let i=0;i<4;i++){
+  const f=document.createElement('div');f.className='fog';f.style.top=i*120+'px';f.style.animationDuration=40+i*20+'s';fog.appendChild(f);
+}
+
+/* Snow */
+let snowParticles=[];function spawnSnow(){if(snowParticles.length>160)return;
+const s=document.createElement('div');s.className='snow';s.style.left=Math.random()*100+'vw';
+let y=-10,xOffset=0,t=Math.random()*1000;snow.appendChild(s);snowParticles.push({el:s,xOffset,y,t});
+}setInterval(spawnSnow,80);
+setInterval(()=>{for(let i=0;i<snowParticles.length;i++){let p=snowParticles[i];p.t+=0.01;p.xOffset+=noise(p.t)*0.3;p.y+=0.7;p.el.style.transform=`translate(${p.xOffset}px, ${p.y}px)`;if(p.y>window.innerHeight){p.el.remove();snowParticles.splice(i,1);i--;}}},30);
+
+/* Wind */
+let windParticles=[];function spawnWind(){if(windParticles.length>20)return;
+const w=document.createElement('div');w.className='wind';w.style.width=80+Math.random()*100+'px';
+let x=Math.random()<0.5?-200:window.innerWidth+200,dir=x<0?1:-1;
+let y=Math.random()*window.innerHeight,t=Math.random()*1000;wind.appendChild(w);windParticles.push({el:w,x,y,t,dir});}setInterval(spawnWind,600);
+setInterval(()=>{for(let i=0;i<windParticles.length;i++){let p=windParticles[i];p.t+=0.03;p.x+=p.dir*2.5;p.y+=noise(p.t)*2;p.el.style.transform=`translate(${p.x}px,${p.y}px)`;if(p.dir>0&&p.x>window.innerWidth+200 || p.dir<0&&p.x<-200){p.el.remove();windParticles.splice(i,1);i--;}}},25);
+
+/* Snowman */
+snowman.onclick=()=>{snowman.classList.add('wiggle');setTimeout(()=>snowman.classList.remove('wiggle'),600);
+const d=document.createElement('div');d.className='dialogue';d.textContent=dialogues[Math.floor(Math.random()*dialogues.length)];document.body.appendChild(d);setTimeout(()=>d.remove(),3000);};
+</script>
+
+<body>
+  <!-- Your page content like giftbox, candy cane, snow, etc. -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const audio = new Audio('christmas.mp3'); // path to your song
+  audio.loop = true;      // loop indefinitely
+  audio.volume = 0.3;     // optional: set volume (0.0 to 1.0)
+
+  // Try to play audio (may require user interaction on some browsers)
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      console.log('Autoplay prevented, will play after user interaction.');
+      // Optionally, add a click to start music:
+      document.body.addEventListener('click', () => audio.play(), { once: true });
+    });
+  }
+});
+</script>
+
+  </body>
+</html>
